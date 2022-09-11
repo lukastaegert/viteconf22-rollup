@@ -1,0 +1,15 @@
+.slidev-layout ul {
+    list-style: disc;
+}
+
+.click-fade .slidev-vclick-target {
+    transition: all 200ms ease;
+}
+
+.click-fade .slidev-vclick-prior {
+    opacity: 0.3;
+}
+
+.click-fade .slidev-vclick-hidden {
+    opacity: 0.3!important;
+}
