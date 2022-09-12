@@ -18,9 +18,13 @@ layout: tweet-right
 tweet: '1563159067979161601'
 ---
 
+<div v-click>
+
 # Will talk about Vite/Rollup cooperation later
 
 but first…
+
+</div>
 
 ---
 layout: cover
@@ -40,7 +44,11 @@ layout: tweet-right
 tweet: '1277937776898519040'
 ---
 
+<div v-click>
+
 # Uh oh
+
+</div>
 
 ---
 
@@ -49,7 +57,7 @@ tweet: '1277937776898519040'
 ```mermaid
 %%{
   init: {
-    "themeCSS": ".node rect { fill: #fdb; stroke: #999; } .nodeLabel { color: #000; } .flowchart-link { stroke: #999 } div { text-align: left; line-height: 1.2; } pre { margin: 16px 0 0 0; }"
+    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } .node div { text-align: left; line-height: 1.2; padding: 8px; } pre { margin: 16px 0 0 0; }"
   }
 }%%
 flowchart LR
@@ -74,7 +82,7 @@ clicks: 2
 ```mermaid
 %%{
   init: {
-    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } div { text-align: left; line-height: 1.2; } pre { margin: 16px 0 0 0; }"
+    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } .node div { text-align: left; line-height: 1.2; padding: 8px; } pre { margin: 16px 0 0 0; }"
   }
 }%%
 flowchart LR
@@ -105,17 +113,17 @@ A --> C
 </div>
 
 ---
+clicks: 1
+---
 
 # Problem: Circular references
 
-Content of each chunk depends on the hash of the other chunk.
-
-<div style="height: 160px">
+<div style="height: 170px">
 
 ```mermaid
 %%{
   init: {
-    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } div { text-align: left; line-height: 1.2; } pre { margin: 16px 0 0 0; }"
+    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } .node div { text-align: left; line-height: 1.2; padding: 8px; } pre { margin: 16px 0 0 0; }"
   }
 }%%
 flowchart LR
@@ -135,34 +143,31 @@ B --> A
 <div class="click-fade" v-click="1">
 <div v-click="1">
 
-1. Per-file hashes that do not include other hashes<br>
-   → Rollup 2: Hash with original file name
+1. Start with per-file hashes that do not include other hashes<br>
+   <span v-click="2">→ Rollup 2: Hash with original import targets</span>
 
 </div>
 <div v-click="2">
 
 2. Combine "hash dependencies" to final hash
-
-</div>
-<div v-click="2">
-
 3. Replace hashes<br>
    → Rollup 2: Replace imports with chunk names
+
 </div>
 </div>
 
 ---
+clicks: 0
+---
 
 # Problem: Circular references
 
-Content of each chunk depends on the hash of the other chunk.
-
-<div style="height: 160px">
+<div style="height: 170px">
 
 ```mermaid
 %%{
   init: {
-    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } div { text-align: left; line-height: 1.2; } pre { margin: 16px 0 0 0; }"
+    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } .node div { text-align: left; line-height: 1.2; padding: 8px; } pre { margin: 16px 0 0 0; }"
   }
 }%%
 flowchart LR
@@ -179,21 +184,32 @@ B --> A
 
 </div>
 
-1. Per-file hashes that do not include other hashes<br>
-   → Rollup 2: Hash with original file name
+<div class="click-fade">
 
+1. Start with per-file hashes that do not include other hashes<br>
+   → Rollup 2: Hash with original import targets
+
+<div v-click="1">
+
+2. Combine "hash dependencies" to final hash
+3. Replace hashes<br>
+   → Rollup 2: Replace imports with chunk names
+
+</div>
+</div>
+
+---
+clicks: 0
 ---
 
 # Problem: Circular references
 
-Content of each chunk depends on the hash of the other chunk.
-
-<div style="height: 160px">
+<div style="height: 170px">
 
 ```mermaid
 %%{
   init: {
-    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } div { text-align: left; line-height: 1.2; } pre { margin: 16px 0 0 0; }"
+    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } .node div { text-align: left; line-height: 1.2; padding: 8px; } pre { margin: 16px 0 0 0; }"
   }
 }%%
 flowchart LR
@@ -210,22 +226,37 @@ B --> A
 
 </div>
 
-1. Per-file hashes that do not include other hashes<br>
-   → Rollup 2: Hash with original file name
+
+<div class="click-fade">
+<div v-click="-1">
+
+1. Start with per-file hashes that do not include other hashes<br>
+   → Rollup 2: Hash with original import targets
+
+</div>
+
 2. Combine "hash dependencies" to final hash
 
+<div v-click="1">
+
+3. Replace hashes<br>
+   → Rollup 2: Replace imports with chunk names
+
+</div>
+</div>
+
+---
+clicks: 0
 ---
 
 # Problem: Circular references
 
-Content of each chunk depends on the hash of the other chunk.
-
-<div style="height: 160px">
+<div style="height: 170px">
 
 ```mermaid
 %%{
   init: {
-    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } div { text-align: left; line-height: 1.2; } pre { margin: 16px 0 0 0; }"
+    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } .node div { text-align: left; line-height: 1.2; padding: 8px; } pre { margin: 16px 0 0 0; }"
   }
 }%%
 flowchart LR
@@ -242,24 +273,30 @@ B --> A
 
 </div>
 
-1. Per-file hashes that do not include other hashes<br>
-   → Rollup 2: Hash with original file name
+<div class="click-fade">
+<div v-click="-1">
+
+1. Start with per-file hashes that do not include other hashes<br>
+   → Rollup 2: Hash with original import targets
 2. Combine "hash dependencies" to final hash
+
+</div>
+
 3. Replace hashes<br>
    → Rollup 2: Replace imports with chunk names
+
+</div>
 
 ---
 
 # Problem: Circular references
 
-Content of each chunk depends on the hash of the other chunk.
-
-<div style="height: 160px">
+<div style="height: 170px">
 
 ```mermaid
 %%{
   init: {
-    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } div { text-align: left; line-height: 1.2; } pre { margin: 16px 0 0 0; }"
+    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } .node div { text-align: left; line-height: 1.2; padding: 8px; } pre { margin: 16px 0 0 0; }"
   }
 }%%
 flowchart LR
@@ -276,12 +313,21 @@ B --> A
 
 </div>
 
-1. Per-file hashes that do not include other hashes<br>
-   → Rollup 2: Hash with original file name
+
+<div class="click-fade">
+<div v-click="-1">
+
+1. Start with per-file hashes that do not include other hashes<br>
+   → Rollup 2: Hash with original import targets
 2. Combine "hash dependencies" to final hash
 3. Replace hashes<br>
    → Rollup 2: Replace imports with chunk names
+
+</div>
+
 4. 🚨 Run `renderChunk` plugin hook for chunk transformations
+
+</div>
 
 ---
 
@@ -305,23 +351,23 @@ hashes depend on original file names
 </v-click>
 
 ---
-class: 'grid justify-center content-start'
----
 
 # Not nice on tooling.report
 
 <img src="images/hashing-issue.png" alt="Tooling report" w="600px">
 
 ---
+clicks: 0
+---
 
 # Rollup 3
 
-<div style="height: 160px">
+<div style="height: 170px">
 
 ```mermaid
 %%{
   init: {
-    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } div { text-align: left; line-height: 1.2; } pre { margin: 16px 0 0 0; }"
+    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } .node div { text-align: left; line-height: 1.2; padding: 8px; } pre { margin: 16px 0 0 0; }"
   }
 }%%
 flowchart LR
@@ -338,18 +384,32 @@ B --> A
 
 </div>
 
+<div class="click-fade">
+
 1. Replace hashes with placeholders
 
+<div v-click="1">
+
+2. Transform chunk via `renderChunk`
+3. Search placeholders in output to get hash dependencies
+4. Replace placeholders with default for content hash
+5. Replace placeholders with final hashes
+
+</div>
+</div>
+
+---
+clicks: 0
 ---
 
 # Rollup 3
 
-<div style="height: 160px">
+<div style="height: 170px">
 
 ```mermaid
 %%{
   init: {
-    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } div { text-align: left; line-height: 1.2; } pre { margin: 16px 0 0 0; }"
+    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } .node div { text-align: left; line-height: 1.2; padding: 8px; } pre { margin: 16px 0 0 0; }"
   }
 }%%
 flowchart LR
@@ -366,19 +426,38 @@ B --> A
 
 </div>
 
+
+<div class="click-fade">
+<div v-click="-1">
+
 1. Replace hashes with placeholders
+
+</div>
+
 2. Transform chunk via `renderChunk`
 
+<div v-click="1">
+
+3. Search placeholders in output to get hash dependencies
+4. Replace placeholders with default for content hash
+5. Replace placeholders with final hashes
+
+</div>
+</div>
+
+
+---
+clicks: 0
 ---
 
 # Rollup 3
 
-<div style="height: 160px">
+<div style="height: 170px">
 
 ```mermaid
 %%{
   init: {
-    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } div { text-align: left; line-height: 1.2; } pre { margin: 16px 0 0 0; }"
+    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } .node div { text-align: left; line-height: 1.2; padding: 8px; } pre { margin: 16px 0 0 0; }"
   }
 }%%
 flowchart LR
@@ -395,20 +474,37 @@ B --> A
 
 </div>
 
+
+<div class="click-fade">
+<div v-click="-1">
+
 1. Replace hashes with placeholders
 2. Transform chunk via `renderChunk`
+
+</div>
+
 3. Search placeholders in output to get hash dependencies
 
+<div v-click="1">
+
+4. Replace placeholders with default for content hash
+5. Replace placeholders with final hashes
+
+</div>
+</div>
+
+---
+clicks: 0
 ---
 
 # Rollup 3
 
-<div style="height: 160px">
+<div style="height: 170px">
 
 ```mermaid
 %%{
   init: {
-    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } div { text-align: left; line-height: 1.2; } pre { margin: 16px 0 0 0; }"
+    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } .node div { text-align: left; line-height: 1.2; padding: 8px; } pre { margin: 16px 0 0 0; }"
   }
 }%%
 flowchart LR
@@ -425,21 +521,37 @@ B --> A
 
 </div>
 
+
+<div class="click-fade">
+<div v-click="-1">
+
 1. Replace hashes with placeholders
 2. Transform chunk via `renderChunk`
 3. Search placeholders in output to get hash dependencies
+
+</div>
+
 4. Replace placeholders with default for content hash
 
+<div v-click="1">
+
+5. Replace placeholders with final hashes
+
+</div>
+</div>
+
+---
+clicks: 0
 ---
 
 # Rollup 3
 
-<div style="height: 160px">
+<div style="height: 170px">
 
 ```mermaid
 %%{
   init: {
-    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } div { text-align: left; line-height: 1.2; } pre { margin: 16px 0 0 0; }"
+    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } .node div { text-align: left; line-height: 1.2; padding: 8px; } pre { margin: 16px 0 0 0; }"
   }
 }%%
 flowchart LR
@@ -456,11 +568,20 @@ B --> A
 
 </div>
 
+
+<div class="click-fade">
+<div v-click="-1">
+
 1. Replace hashes with placeholders
 2. Transform chunk via `renderChunk`
 3. Search placeholders in output to get hash dependencies
 4. Replace placeholders with default for content hash
+
+</div>
+
 5. Replace placeholders with final hashes
+
+</div>
 
 ---
 
@@ -491,21 +612,21 @@ layout: tweet-right
 tweet: '1565292648134578177'
 ---
 
+<div v-click>
+
 # Makes Vite<br>happy
 
+</div>
 
 ---
 layout: tweet-right
 tweet: '1552627938046222336'
+tweet-click: true
 ---
 
 # How does Rollup<br>feel about<br>Vite?
 
-<v-click>
-
 Using Rollup was a unilateral choice
-
-</v-click>
 
 ---
 layout: image-right

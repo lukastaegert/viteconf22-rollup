@@ -4,11 +4,13 @@
       <slot/>
     </div>
     <div class="justify-self-start self-center w-3/4">
-      <Tweet :id="tweet"/>
+      <Tweet :id="tweet" v-if="typeof tweetClick === 'number'" :v-click="tweetClick"/>
+      <Tweet :id="tweet" v-else-if="tweetClick" v-click/>
+      <Tweet :id="tweet" v-else/>
     </div>
   </div>
 </template>
 
 <script setup>
-defineProps(['tweet'])
+defineProps(['tweet', 'tweetClick'])
 </script>
