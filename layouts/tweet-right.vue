@@ -4,8 +4,7 @@
       <slot/>
     </div>
     <div class="justify-self-start self-center w-3/4">
-      <Tweet :id="tweet" v-if="typeof tweetClick === 'number'" :v-click="tweetClick"/>
-      <Tweet :id="tweet" v-else-if="tweetClick" v-click/>
+      <Tweet :id="tweet" v-if="tweetClick" v-click="1"/>
       <Tweet :id="tweet" v-else/>
     </div>
   </div>
@@ -13,4 +12,6 @@
 
 <script setup>
 defineProps(['tweet', 'tweetClick'])
+
+const foo = '2';
 </script>

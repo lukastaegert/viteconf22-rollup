@@ -13,3 +13,7 @@
 .click-fade .slidev-vclick-hidden {
     opacity: 0.3!important;
 }
+
+.click-fade .slidev-vclick-hidden .no-fade {
+    opacity: 0;
+}

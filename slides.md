@@ -1,9 +1,10 @@
 ---
 theme: default
-class: 'text-center'
-highlighter: shiki
-lineNumbers: false
-background: https://source.unsplash.com/collection/94734566/1920x1080
+titleTemplate: '%s'
+favicon: favicon.png
+class: text-center
+background: images/ancient-bug.jpeg
+title: The hashing dilemma,<br>Rollup 3,<br>and our future with Vite
 ---
 
 # The hashing dilemma,<br>Rollup 3,<br>and our future with Vite
@@ -28,7 +29,7 @@ but first…
 
 ---
 layout: cover
-background: https://source.unsplash.com/collection/94734566/1920x1080
+background: images/ancient-bug.jpeg
 ---
 
 # An ancient Rollup bug
@@ -51,8 +52,11 @@ tweet: '1277937776898519040'
 </div>
 
 ---
+layout: small-image-right
+image: images/ancient-bug.jpeg
+---
 
-# Unique file names based on content
+# Content-based file names
 
 ```mermaid
 %%{
@@ -63,9 +67,9 @@ tweet: '1277937776898519040'
 flowchart LR
 
 A("<b>chunk-16d093.js</b><br><pre>
-import('./chunk-b509f66.js');
+import('./chunk-b509f6.js');
 import('./chunk-14d9c9.js');</pre>")
-B("<b>chunk-b509f66.js</b><br><pre>
+B("<b>chunk-b509f6.js</b><br><pre>
 console.log('foo');</pre>")
 C("<b>chunk-14d9c9.js</b><br><pre>
 console.log('bar');</pre>")
@@ -75,9 +79,11 @@ A --> C
 
 ---
 clicks: 2
+layout: small-image-right
+image: images/ancient-bug.jpeg
 ---
 
-# Unique file names based on content
+# Content-based file names
 
 ```mermaid
 %%{
@@ -87,13 +93,13 @@ clicks: 2
 }%%
 flowchart LR
 
-A("<b>main-<span style=color:red>c7e614</span>.js</b><br><pre>
-import('./chunk-b509f66.js');
-import('./chunk-<span style=color:red>b89eaa</span>.js');</pre>")
-B("<b>chunk-b509f66.js</b><br><pre>
-console.log('foo');</pre>")
-C("<b>chunk-<span style=color:red>b89eaa</span>.js</b><br><pre>
-console.log('<span style=color:red>crazy</span>');</pre>")
+A("<b>chunk-<span style=color:red>c7e614</span>.js</b><br><pre>
+import('./chunk-<span style=color:red>b89eaa</span>.js');
+import('./chunk-14d9c9.js');</pre>")
+B("<b>chunk-<span style=color:red>b89eaa</span>.js</b><br><pre>
+console.log('<span style=color:red>baz</span>');</pre>")
+C("<b>chunk-14d9c9.js</b><br><pre>
+console.log('bar');</pre>")
 A --> B
 A --> C
 ```
@@ -114,6 +120,8 @@ A --> C
 
 ---
 clicks: 1
+layout: small-image-right
+image: images/ancient-bug.jpeg
 ---
 
 # Problem: Circular references
@@ -158,6 +166,8 @@ B --> A
 
 ---
 clicks: 0
+layout: small-image-right
+image: images/ancient-bug.jpeg
 ---
 
 # Problem: Circular references
@@ -200,6 +210,8 @@ B --> A
 
 ---
 clicks: 0
+layout: small-image-right
+image: images/ancient-bug.jpeg
 ---
 
 # Problem: Circular references
@@ -247,6 +259,8 @@ B --> A
 
 ---
 clicks: 0
+layout: small-image-right
+image: images/ancient-bug.jpeg
 ---
 
 # Problem: Circular references
@@ -288,6 +302,9 @@ B --> A
 </div>
 
 ---
+layout: small-image-right
+image: images/ancient-bug.jpeg
+---
 
 # Problem: Circular references
 
@@ -305,7 +322,7 @@ A("<b>chunk-🐠.js</b><br>hash: 🍎<br>depends on: 🍎 + 🥦 = 🐠<pre>
 console.log('foo');
 import('<span style=color:blue>./chunk-🦑.js</span>');</pre>")
 B("<b>chunk-🦑.js</b><br>hash: 🥦<br>depends on: 🥦 + 🍎 = 🦑<pre>
-console.log('<span style=color:red>transformed</span>');
+console.log('<span style=color:red>changed</span>');
 import('<span style=color:blue>./chunk-🐠.js</span>');</pre>")
 A --> B
 B --> A
@@ -330,6 +347,9 @@ B --> A
 </div>
 
 ---
+layout: small-image-right
+image: images/ancient-bug.jpeg
+---
 
 ## Nice
 easy to implement, handles cycles
@@ -351,16 +371,58 @@ hashes depend on original file names
 </v-click>
 
 ---
+layout: small-image-right
+image: images/ancient-bug.jpeg
+---
 
 # Not nice on tooling.report
 
-<img src="images/hashing-issue.png" alt="Tooling report" w="600px">
+<img src="images/hashing-issue.png" alt="Tooling report">
+
+---
+layout: cover
+background: images/solving-the-hashing-dilemma.jpeg
+---
+
+# Rollup 3:<br>Solving the hashing dilemma
 
 ---
 clicks: 0
+layout: small-image-right
+image: images/solving-the-hashing-dilemma.jpeg
 ---
 
-# Rollup 3
+# Rollup 3 hashing
+
+<div style="height: 170px">
+
+```mermaid
+%%{
+  init: {
+    "themeCSS": ".node rect { fill: #fdb; stroke: #000; } .nodeLabel { color: #000; } .node div { text-align: left; line-height: 1.2; padding: 8px; } pre { margin: 16px 0 0 0; }"
+  }
+}%%
+flowchart LR
+
+A("<b>chunk-?.js</b><pre>
+console.log('foo');
+import('./chunk-?.js');</pre>")
+B("<b>chunk-?.js</b><pre>
+console.log('bar');
+import('./chunk-?.js');</pre>")
+A --> B
+B --> A
+```
+
+</div>
+
+---
+clicks: 0
+layout: small-image-right
+image: images/solving-the-hashing-dilemma.jpeg
+---
+
+# Rollup 3 hashing
 
 <div style="height: 170px">
 
@@ -400,9 +462,11 @@ B --> A
 
 ---
 clicks: 0
+layout: small-image-right
+image: images/solving-the-hashing-dilemma.jpeg
 ---
 
-# Rollup 3
+# Rollup 3 hashing
 
 <div style="height: 170px">
 
@@ -418,7 +482,7 @@ A("<b>chunk-<span style=color:blue>~!{1}~</span>.js</b><pre>
 console.log('foo');
 import('./chunk-<span style=color:blue>~!{2}~</span>.js');</pre>")
 B("<b>chunk-<span style=color:blue>~!{2}~</span>.js</b><pre>
-console.log('<span style=color:red>transformed</span>');
+console.log('<span style=color:red>changed</span>');
 import('./chunk-<span style=color:blue>~!{1}~</span>.js');</pre>")
 A --> B
 B --> A
@@ -448,9 +512,11 @@ B --> A
 
 ---
 clicks: 0
+layout: small-image-right
+image: images/solving-the-hashing-dilemma.jpeg
 ---
 
-# Rollup 3
+# Rollup 3 hashing
 
 <div style="height: 170px">
 
@@ -466,7 +532,7 @@ A("<b>chunk-<span style=color:blue>~!{1}~</span>.js</b><br>depends on: <span sty
 console.log('foo');
 import('./chunk-<span style=color:blue>~!{2}~</span>.js');</pre>")
 B("<b>chunk-<span style=color:blue>~!{2}~</span>.js</b><br>depends on: <span style=color:blue>~!{2}~</span>, <span style=color:blue>~!{1}~</span><pre>
-console.log('<span style=color:red>transformed</span>');
+console.log('<span style=color:red>changed</span>');
 import('./chunk-<span style=color:blue>~!{1}~</span>.js');</pre>")
 A --> B
 B --> A
@@ -495,9 +561,11 @@ B --> A
 
 ---
 clicks: 0
+layout: small-image-right
+image: images/solving-the-hashing-dilemma.jpeg
 ---
 
-# Rollup 3
+# Rollup 3 hashing
 
 <div style="height: 170px">
 
@@ -513,7 +581,7 @@ A("<b>chunk-<span style=color:blue>~!{1}~</span>.js</b><br>hash: 🍎<br>depends
 console.log('foo');
 import('./chunk-<span style=color:red>~!{0}~</span>.js');</pre>")
 B("<b>chunk-<span style=color:blue>~!{2}~</span>.js</b><br>hash: 🫐<br>depends on: <span style=color:blue>~!{2}~</span>, <span style=color:blue>~!{1}~</span><pre>
-console.log('<span style=color:red>transformed</span>');
+console.log('<span style=color:red>changed</span>');
 import('./chunk-<span style=color:red>~!{0}~</span>.js');</pre>")
 A --> B
 B --> A
@@ -542,9 +610,11 @@ B --> A
 
 ---
 clicks: 0
+layout: small-image-right
+image: images/solving-the-hashing-dilemma.jpeg
 ---
 
-# Rollup 3
+# Rollup 3 hashing
 
 <div style="height: 170px">
 
@@ -560,7 +630,7 @@ A("<b>chunk-🍐.js</b><br>hash: 🍎<br>depends on: 🍎 + 🫐 = 🍐<pre>
 console.log('foo');
 import('./chunk-🍊.js');</pre>")
 B("<b>chunk-🍊.js</b><br>hash: 🫐<br>depends on: 🫐 + 🍎 = 🍊<pre>
-console.log('<span style=color:red>transformed</span>');
+console.log('<span style=color:red>changed</span>');
 import('./chunk-🍐.js');</pre>")
 A --> B
 B --> A
@@ -583,6 +653,9 @@ B --> A
 
 </div>
 
+---
+layout: small-image-right
+image: images/solving-the-hashing-dilemma.jpeg
 ---
 
 ## Yes
@@ -619,98 +692,202 @@ tweet: '1565292648134578177'
 </div>
 
 ---
+layout: cover
+background: images/future.jpeg
+---
+
+# A future with Vite
+
+---
 layout: tweet-right
 tweet: '1552627938046222336'
 tweet-click: true
+clicks: 1
 ---
 
 # How does Rollup<br>feel about<br>Vite?
 
-Using Rollup was a unilateral choice
+<v-click>
+
+We were not asked…
+
+</v-click>
 
 ---
-layout: image-right
+layout: small-image-right
+image: images/future.jpeg
+clicks: 3
 ---
 
 # Why did Vite choose Rollup?
 
-(to my understanding)
+<div v-click="1">
+<div class="click-fade">
+<v-clicks>
 
 1. Solve the plugin dilemma:<br>No plugins without users, no users without plugins
 2. Slightly smaller output than other options
 3. More mature code-splitting options and configurability than esbuild
 
-Which is exactly what we hope Rollup provides to higher level tooling!
+</v-clicks>
+</div>
+</div>
+<div v-click="3">
 
+Which is exactly how we wanted to position Rollup!
+
+</div>
+
+
+---
+layout: small-image-right
+image: images/future.jpeg
+clicks: 3
 ---
 
 # A personal detour
 
+<div v-click="1">
+<div class="click-fade">
+<v-clicks>
+
 - Rich Harris created Rollup in 2015
 - In 2017, I created some PRs to improve tree-shaking
-- Accidentally became Rollup maintainer<br><img src="images/rich-message.png" style="width:50%">
+- Accidentally became Rollup maintainer<br><img src="images/rich-message.png" class="no-fade">
+
+</v-clicks>
+</div>
+</div>
 
 ---
 layout: small-image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
+image: images/future.jpeg
+clicks: 4
 ---
 
-# A strategic decision
+# Strategic decisions
 
 Problem: No large team, mostly single-time contributors
 
-Double down on:
-- __Core improvements__: Do not expand Rollup's scope lightly
-- __Configurability__: Few assumptions about what Rollup is used for
-- __Do not expose internals__: Allow easy refactoring
-- __Plugin interface__ as first-class API
+<div v-click="1">
 
-→ Hope for higher-level tooling for better DX in specific use cases:
+Double down on:
+
+<div class="click-fade">
+<v-clicks>
+
+- __Core improvements__<br>Do not expand Rollup's scope lightly
+- __No exposed internals__<br>Allow easy refactoring
+- __Configurability__<br>Few assumptions about what Rollup is used for
+- __Plugin interface__<br>as stable, well-documented first-class API
+
+</v-clicks>
+</div>
+</div>
+
+---
+layout: small-image-right
+image: images/future.jpeg
+---
+
+# Encourage third-party tooling
+
+for better DX in specific use cases
+
+<v-clicks>
 
 - TSDX, microbundle (library bundling)
 - Stencil (web components)
 
-But Vite was beyond my wildest hopes!
+But WMR and especially Vite were beyond my wildest hopes!
 
+</v-clicks>
+
+---
+layout: small-image-right
+image: images/future.jpeg
+clicks: 2
 ---
 
 # Creating a partnership
 
+<div v-click="1">
+<div class="click-fade">
+<v-clicks>
+
 - Include Vite and WMR developers early in plugin API extensions
-- Consider moving Vite plugin API extensions upstream<br>
+- Move some Vite plugin API extensions upstream<br>
   → "order" attribute for plugin hooks (as a better "enforce")
 
-  __People should be able to write Rollup plugins instead of Vite plugins<br>unless they really need Vite features__
+  <div class="no-fade">
+  
+  __People should be able to write Rollup plugins instead of Vite plugins unless they really need to target Vite__
+
+  </div>
+
+</v-clicks>
+</div>
+</div>
 
 ---
+layout: cover
+background: images/roadmap.jpeg
+---
 
-# Going forward
+# Roadmap
 
-More Rollup 3 features that benefit Vite users
+---
+layout: small-image-right
+image: images/roadmap-narrow.jpeg
+clicks: 4
+---
 
-- per-chunk `banner/footer/intro/outro` config for simple code injection<br>
-  → make sure to update chunk info when changing imports/exports
-- refined errors
+# More Rollup 3 goodies
+
+<div class="click-fade">
+<v-clicks at="0">
+
+- per-chunk `banner/footer/intro/outro` config for simple code injection
 - sourcemaps as regular assets in `generateBundle`
 - better alignment with NodeJS interop for library bundling<br>
   → improved defaults for `interop`, `esModule`
 - improved defaults for `preserveEntrySignatures`, `generatedCode`,<br>`makeAbsoluteExternalsRelative`
-- smaller footprint via separate browser build
+- smaller footprint via separate browser build<br>and more…
+
+</v-clicks>
+</div>
 
 ---
+layout: small-image-right
+image: images/roadmap-narrow.jpeg
+---
 
-# Roadmap
+# What is next?
+
+<div class="click-fade">
+
+→ Focus on our strengths
+
+<v-clicks>
+
+- tree-shaking/code optimization
+- code-splitting<br>→ next up: Minimum chunk size target,<br>merge small side effect free chunks into larger ones
+
+</v-clicks>
+</div>
+
+---
+layout: small-image-right
+image: images/roadmap-narrow.jpeg
+---
+
+# What about build speed?
 
 From Vite docs:
 
 > … That said, we won't rule out the possibility of using esbuild for production builds when it stabilizes these features in the future.
 
-Focus on our strengths
-* tree-shaking/code optimization
-* code-splitting<br>next up: Minimum chunk size target, merge small side effect free chunks into larger ones
-
-Performance: Do not rule out converting parts to native code eventually
+Would consider converting parts to native code eventually
 
 * Probably Rust rather than Go, build on SWC
 * Need new contributors to pull this off
-
