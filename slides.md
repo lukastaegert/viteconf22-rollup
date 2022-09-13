@@ -3,7 +3,7 @@ theme: default
 titleTemplate: '%s'
 favicon: favicon.png
 class: text-center
-background: images/ancient-bug.jpeg
+background: images/title.jpeg
 title: The hashing dilemma,<br>Rollup 3,<br>and our future with Vite
 ---
 
@@ -17,6 +17,8 @@ Maintainer of RollupJS
 ---
 layout: tweet-right
 tweet: '1563159067979161601'
+class: 'bg-cover bg-center'
+style: 'color: white; background-image:linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.533)),url("images/title.jpeg");'
 ---
 
 <div v-click>
@@ -35,14 +37,17 @@ background: images/ancient-bug.jpeg
 # An ancient Rollup bug
 
 ---
-class: 'grid justify-center'
+class: 'grid justify-center content-center bg-cover bg-center'
+style: 'color: white; background-image:linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.533)),url("images/ancient-bug.jpeg");'
 ---
 
-<img src="images/chunk-hash-bug.png" alt="Rollup hashing bug report" w="700px">
+<img src="images/chunk-hash-bug.png" alt="Rollup hashing bug report" w="700px" rounded="xl">
 
 ---
 layout: tweet-right
 tweet: '1277937776898519040'
+class: 'bg-cover bg-center'
+style: 'color: white; background-image:linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.533)),url("images/ancient-bug.jpeg");'
 ---
 
 <div v-click>
@@ -326,7 +331,7 @@ hashes depend on original file names
 
 
 ## Arrgh
-**chunk transformations by plugins after hashing cannot change hashes**
+**chunk transformations by plugins cannot change hashes**
 
 → Rollup's `renderChunk` hook breaks content hashing
 
@@ -604,6 +609,8 @@ function renderChunk(code, chunk, outputOptions, { /* NEW */ chunks }){
 ---
 layout: tweet-right
 tweet: '1565292648134578177'
+class: 'bg-cover bg-center'
+style: 'color: white; background-image:linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.533)),url("images/solving-the-hashing-dilemma.jpeg");'
 ---
 
 <div v-click>
@@ -624,6 +631,8 @@ layout: tweet-right
 tweet: '1552627938046222336'
 tweet-click: true
 clicks: 1
+class: 'bg-cover bg-center'
+style: 'color: white; background-image:linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.533)),url("images/future.jpeg");'
 ---
 
 # How does Rollup<br>feel about<br>Vite?
@@ -807,3 +816,21 @@ Open to converting Rollup parts to native code eventually
 
 </v-clicks>
 </v-click>
+
+---
+class: 'grid justify-center content-center text-center bg-cover bg-center'
+style: 'color: white; background-image:linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.533)),url("images/end.jpeg");'
+---
+
+# Thank you
+
+Dr. Lukas Taegert-Atkinson<br>
+TNG Technology Consulting
+
+<div>
+
+<a href="https://twitter.com/lukastaegert"><logos-twitter/> @lukastaegert</a>
+
+<a href="https://rollupjs.org/"><logos-rollup/> rollupjs.org</a>
+
+</div>
