@@ -104,19 +104,13 @@ A --> B
 A --> C
 ```
 
-<div class="click-fade" v-click="1">
-<div v-click="1">
+<v-clicks at="1" class="click-fade" v-click="1">
 
 - long-term client-side caching
-
-</div>
-<div v-click="2">
-
 - deployments at any time<br>
   → take unchanged files from cache
 
-</div>
-</div>
+</v-clicks>
 
 ---
 clicks: 1
@@ -147,22 +141,15 @@ B --> A
 ```
 
 </div>
-
-<div class="click-fade" v-click="1">
-<div v-click="1">
+<v-clicks at="1" class="click-fade" v-click="1">
 
 1. Start with per-file hashes that do not include other hashes<br>
    <span v-click="2">→ Rollup 2: Hash with original import targets</span>
-
-</div>
-<div v-click="2">
-
 2. Combine "hash dependencies" to final hash
 3. Replace hashes<br>
    → Rollup 2: Replace imports with chunk names
 
-</div>
-</div>
+</v-clicks>
 
 ---
 clicks: 0
@@ -193,20 +180,15 @@ B --> A
 ```
 
 </div>
-
-<div class="click-fade">
+<v-clicks at="0" class="click-fade">
 
 1. Start with per-file hashes that do not include other hashes<br>
    → Rollup 2: Hash with original import targets
-
-<div v-click="1">
-
 2. Combine "hash dependencies" to final hash
 3. Replace hashes<br>
    → Rollup 2: Replace imports with chunk names
 
-</div>
-</div>
+</v-clicks>
 
 ---
 clicks: 0
@@ -237,25 +219,15 @@ B --> A
 ```
 
 </div>
-
-
-<div class="click-fade">
-<div v-click="-1">
+<v-clicks at="-1" class="click-fade">
 
 1. Start with per-file hashes that do not include other hashes<br>
    → Rollup 2: Hash with original import targets
-
-</div>
-
 2. Combine "hash dependencies" to final hash
-
-<div v-click="1">
-
 3. Replace hashes<br>
    → Rollup 2: Replace imports with chunk names
 
-</div>
-</div>
+</v-clicks>
 
 ---
 clicks: 0
@@ -286,24 +258,20 @@ B --> A
 ```
 
 </div>
-
-<div class="click-fade">
-<div v-click="-1">
+<v-clicks at="-2" class="click-fade">
 
 1. Start with per-file hashes that do not include other hashes<br>
    → Rollup 2: Hash with original import targets
 2. Combine "hash dependencies" to final hash
-
-</div>
-
 3. Replace hashes<br>
    → Rollup 2: Replace imports with chunk names
 
-</div>
+</v-clicks>
 
 ---
 layout: small-image-right
 image: images/ancient-bug.jpeg
+clicks: 0
 ---
 
 # Problem: Circular references
@@ -329,22 +297,16 @@ B --> A
 ```
 
 </div>
-
-
-<div class="click-fade">
-<div v-click="-1">
+<v-clicks at="-3" class="click-fade">
 
 1. Start with per-file hashes that do not include other hashes<br>
    → Rollup 2: Hash with original import targets
 2. Combine "hash dependencies" to final hash
 3. Replace hashes<br>
    → Rollup 2: Replace imports with chunk names
-
-</div>
-
 4. 🚨 Run `renderChunk` plugin hook for chunk transformations
 
-</div>
+</v-clicks>
 
 ---
 layout: small-image-right
@@ -445,20 +407,15 @@ B --> A
 ```
 
 </div>
-
-<div class="click-fade">
+<v-clicks at="0" class="click-fade">
 
 1. Replace hashes with placeholders
-
-<div v-click="1">
-
 2. Transform chunk via `renderChunk`
 3. Search placeholders in output to get hash dependencies
 4. Replace placeholders with default for content hash
 5. Replace placeholders with final hashes
 
-</div>
-</div>
+</v-clicks>
 
 ---
 clicks: 0
@@ -489,25 +446,15 @@ B --> A
 ```
 
 </div>
-
-
-<div class="click-fade">
-<div v-click="-1">
+<v-clicks at="-1" class="click-fade">
 
 1. Replace hashes with placeholders
-
-</div>
-
 2. Transform chunk via `renderChunk`
-
-<div v-click="1">
-
 3. Search placeholders in output to get hash dependencies
 4. Replace placeholders with default for content hash
 5. Replace placeholders with final hashes
 
-</div>
-</div>
+</v-clicks>
 
 
 ---
@@ -539,25 +486,15 @@ B --> A
 ```
 
 </div>
-
-
-<div class="click-fade">
-<div v-click="-1">
+<v-clicks at="-2" class="click-fade">
 
 1. Replace hashes with placeholders
 2. Transform chunk via `renderChunk`
-
-</div>
-
 3. Search placeholders in output to get hash dependencies
-
-<div v-click="1">
-
 4. Replace placeholders with default for content hash
 5. Replace placeholders with final hashes
 
-</div>
-</div>
+</v-clicks>
 
 ---
 clicks: 0
@@ -588,25 +525,15 @@ B --> A
 ```
 
 </div>
-
-
-<div class="click-fade">
-<div v-click="-1">
+<v-clicks at="-3" class="click-fade">
 
 1. Replace hashes with placeholders
 2. Transform chunk via `renderChunk`
 3. Search placeholders in output to get hash dependencies
-
-</div>
-
 4. Replace placeholders with default for content hash
-
-<div v-click="1">
-
 5. Replace placeholders with final hashes
 
-</div>
-</div>
+</v-clicks>
 
 ---
 clicks: 0
@@ -637,21 +564,15 @@ B --> A
 ```
 
 </div>
-
-
-<div class="click-fade">
-<div v-click="-1">
+<v-clicks at="-4" class="click-fade">
 
 1. Replace hashes with placeholders
 2. Transform chunk via `renderChunk`
 3. Search placeholders in output to get hash dependencies
 4. Replace placeholders with default for content hash
-
-</div>
-
 5. Replace placeholders with final hashes
 
-</div>
+</v-clicks>
 
 ---
 layout: small-image-right
@@ -721,22 +642,18 @@ clicks: 3
 
 # Why did Vite choose Rollup?
 
-<div v-click="1">
-<div class="click-fade">
-<v-clicks>
+<v-clicks at="1" class="click-fade" v-click="1">
 
 1. Solve the plugin dilemma:<br>No plugins without users, no users without plugins
 2. Slightly smaller output than other options
 3. More mature code-splitting options and configurability than esbuild
 
 </v-clicks>
-</div>
-</div>
-<div v-click="3">
+<v-click at="3">
 
 Which is exactly how we wanted to position Rollup!
 
-</div>
+</v-click>
 
 
 ---
@@ -747,17 +664,13 @@ clicks: 3
 
 # A personal detour
 
-<div v-click="1">
-<div class="click-fade">
-<v-clicks>
+<v-clicks at="1" class="click-fade" v-click="1">
 
 - Rich Harris created Rollup in 2015
 - In 2017, I created some PRs to improve tree-shaking
 - Accidentally became Rollup maintainer<br><img src="images/rich-message.png" class="no-fade">
 
 </v-clicks>
-</div>
-</div>
 
 ---
 layout: small-image-right
@@ -773,8 +686,7 @@ Problem: No large team, mostly single-time contributors
 
 Double down on:
 
-<div class="click-fade">
-<v-clicks>
+<v-clicks at="1" class="click-fade">
 
 - __Core improvements__<br>Do not expand Rollup's scope lightly
 - __No exposed internals__<br>Allow easy refactoring
@@ -783,25 +695,28 @@ Double down on:
 
 </v-clicks>
 </div>
-</div>
 
 ---
 layout: small-image-right
 image: images/future.jpeg
+clicks: 3
 ---
 
 # Encourage third-party tooling
 
 for better DX in specific use cases
 
-<v-clicks>
+<v-clicks at="1" class="click-fade" v-click="1">
 
 - TSDX, microbundle (library bundling)
 - Stencil (web components)
 
+</v-clicks>
+<v-click at="3">
+
 But WMR and especially Vite were beyond my wildest hopes!
 
-</v-clicks>
+</v-click>
 
 ---
 layout: small-image-right
@@ -811,9 +726,7 @@ clicks: 2
 
 # Creating a partnership
 
-<div v-click="1">
-<div class="click-fade">
-<v-clicks>
+<v-clicks at="1" class="click-fade" v-click="1">
 
 - Include Vite and WMR developers early in plugin API extensions
 - Move some Vite plugin API extensions upstream<br>
@@ -826,8 +739,6 @@ clicks: 2
   </div>
 
 </v-clicks>
-</div>
-</div>
 
 ---
 layout: cover
@@ -844,8 +755,7 @@ clicks: 4
 
 # More Rollup 3 goodies
 
-<div class="click-fade">
-<v-clicks at="0">
+<v-clicks at="0" class="click-fade">
 
 - per-chunk `banner/footer/intro/outro` config for simple code injection
 - sourcemaps as regular assets in `generateBundle`
@@ -855,7 +765,6 @@ clicks: 4
 - smaller footprint via separate browser build<br>and more…
 
 </v-clicks>
-</div>
 
 ---
 layout: small-image-right
@@ -864,17 +773,17 @@ image: images/roadmap-narrow.jpeg
 
 # What is next?
 
-<div class="click-fade">
+<div>
 
 → Focus on our strengths
 
-<v-clicks>
+</div>
+<v-clicks class="click-fade">
 
 - tree-shaking/code optimization
 - code-splitting<br>→ next up: Minimum chunk size target,<br>merge small side effect free chunks into larger ones
 
 </v-clicks>
-</div>
 
 ---
 layout: small-image-right
@@ -887,7 +796,14 @@ From Vite docs:
 
 > … That said, we won't rule out the possibility of using esbuild for production builds when it stabilizes these features in the future.
 
-Would consider converting parts to native code eventually
+<v-click at="1">
+
+Open to converting Rollup parts to native code eventually
+
+<v-clicks at="2" class="click-fade">
 
 * Probably Rust rather than Go, build on SWC
 * Need new contributors to pull this off
+
+</v-clicks>
+</v-click>
