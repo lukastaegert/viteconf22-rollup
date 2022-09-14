@@ -1,18 +1,21 @@
 {
-  "name": "hashing-dilemma",
-  "private": true,
+  "name": "viteconf22-rollup",
+  "description": "The hashing dilemma, Rollup 3, and our future with Vite",
+  "author": "Lukas Taegert-Atkinson",
+  "license": "Apache-2.0",
   "scripts": {
     "build": "slidev build",
     "dev": "slidev --open",
     "export": "slidev export"
   },
   "dependencies": {
-    "@slidev/cli": "^0.35.5",
+    "@slidev/cli": "^0.36.4",
     "@slidev/theme-default": "*",
     "@slidev/theme-seriph": "*"
   },
   "devDependencies": {
     "@iconify-json/logos": "^1.1.15",
+    "playwright-chromium": "^1.25.2",
     "prettier": "^2.7.1"
   }
 }

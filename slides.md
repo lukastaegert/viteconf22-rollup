@@ -3,7 +3,7 @@ theme: default
 titleTemplate: '%s'
 favicon: favicon.png
 class: text-center
-background: images/title.jpeg
+background: /title.jpeg
 title: The hashing dilemma,<br>Rollup 3,<br>and our future with Vite
 ---
 
@@ -18,7 +18,7 @@ Maintainer of RollupJS
 layout: tweet-right
 tweet: '1563159067979161601'
 class: 'bg-cover bg-center'
-style: 'color: white; background-image:linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.533)),url("images/title.jpeg");'
+style: 'color: white; background-image:linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.533)),url("/title.jpeg");'
 ---
 
 <div v-click>
@@ -31,23 +31,23 @@ but first…
 
 ---
 layout: cover
-background: images/ancient-bug.jpeg
+background: /ancient-bug.jpeg
 ---
 
 # An ancient Rollup bug
 
 ---
 class: 'grid justify-center content-center bg-cover bg-center'
-style: 'color: white; background-image:linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.533)),url("images/ancient-bug.jpeg");'
+style: 'color: white; background-image:linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.533)),url("/ancient-bug.jpeg");'
 ---
 
-<img src="images/chunk-hash-bug.png" alt="Rollup hashing bug report" w="700px" rounded="xl">
+<img src="/chunk-hash-bug.png" alt="Rollup hashing bug report" w="700px" rounded="xl">
 
 ---
 layout: tweet-right
 tweet: '1277937776898519040'
 class: 'bg-cover bg-center'
-style: 'color: white; background-image:linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.533)),url("images/ancient-bug.jpeg");'
+style: 'color: white; background-image:linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.533)),url("/ancient-bug.jpeg");'
 ---
 
 <div v-click>
@@ -58,7 +58,7 @@ style: 'color: white; background-image:linear-gradient(rgba(0, 0, 0, 0.333), rgb
 
 ---
 layout: small-image-right
-image: images/ancient-bug.jpeg
+image: /ancient-bug.jpeg
 ---
 
 # Content-based file names
@@ -85,7 +85,7 @@ A --> C
 ---
 clicks: 2
 layout: small-image-right
-image: images/ancient-bug.jpeg
+image: /ancient-bug.jpeg
 ---
 
 # Content-based file names
@@ -120,7 +120,7 @@ A --> C
 ---
 clicks: 1
 layout: small-image-right
-image: images/ancient-bug.jpeg
+image: /ancient-bug.jpeg
 ---
 
 # Problem: Circular references
@@ -159,7 +159,7 @@ B --> A
 ---
 clicks: 0
 layout: small-image-right
-image: images/ancient-bug.jpeg
+image: /ancient-bug.jpeg
 ---
 
 # Problem: Circular references
@@ -198,7 +198,7 @@ B --> A
 ---
 clicks: 0
 layout: small-image-right
-image: images/ancient-bug.jpeg
+image: /ancient-bug.jpeg
 ---
 
 # Problem: Circular references
@@ -237,7 +237,7 @@ B --> A
 ---
 clicks: 0
 layout: small-image-right
-image: images/ancient-bug.jpeg
+image: /ancient-bug.jpeg
 ---
 
 # Problem: Circular references
@@ -275,7 +275,7 @@ B --> A
 
 ---
 layout: small-image-right
-image: images/ancient-bug.jpeg
+image: /ancient-bug.jpeg
 clicks: 0
 ---
 
@@ -315,7 +315,7 @@ B --> A
 
 ---
 layout: small-image-right
-image: images/ancient-bug.jpeg
+image: /ancient-bug.jpeg
 ---
 
 ## Nice
@@ -339,16 +339,16 @@ hashes depend on original file names
 
 ---
 layout: small-image-right
-image: images/ancient-bug.jpeg
+image: /ancient-bug.jpeg
 ---
 
 # Not nice on tooling.report
 
-<img src="images/hashing-issue.png" alt="Tooling report">
+<img src="/hashing-issue.png" alt="Tooling report">
 
 ---
 layout: cover
-background: images/solving-the-hashing-dilemma.jpeg
+background: /solving-the-hashing-dilemma.jpeg
 ---
 
 # Rollup 3:<br>Solving the hashing dilemma
@@ -356,7 +356,7 @@ background: images/solving-the-hashing-dilemma.jpeg
 ---
 clicks: 0
 layout: small-image-right
-image: images/solving-the-hashing-dilemma.jpeg
+image: /solving-the-hashing-dilemma.jpeg
 ---
 
 # Rollup 3 hashing
@@ -386,7 +386,7 @@ B --> A
 ---
 clicks: 0
 layout: small-image-right
-image: images/solving-the-hashing-dilemma.jpeg
+image: /solving-the-hashing-dilemma.jpeg
 ---
 
 # Rollup 3 hashing
@@ -425,7 +425,7 @@ B --> A
 ---
 clicks: 0
 layout: small-image-right
-image: images/solving-the-hashing-dilemma.jpeg
+image: /solving-the-hashing-dilemma.jpeg
 ---
 
 # Rollup 3 hashing
@@ -465,7 +465,7 @@ B --> A
 ---
 clicks: 0
 layout: small-image-right
-image: images/solving-the-hashing-dilemma.jpeg
+image: /solving-the-hashing-dilemma.jpeg
 ---
 
 # Rollup 3 hashing
@@ -504,7 +504,7 @@ B --> A
 ---
 clicks: 0
 layout: small-image-right
-image: images/solving-the-hashing-dilemma.jpeg
+image: /solving-the-hashing-dilemma.jpeg
 ---
 
 # Rollup 3 hashing
@@ -543,7 +543,7 @@ B --> A
 ---
 clicks: 0
 layout: small-image-right
-image: images/solving-the-hashing-dilemma.jpeg
+image: /solving-the-hashing-dilemma.jpeg
 ---
 
 # Rollup 3 hashing
@@ -581,7 +581,7 @@ B --> A
 
 ---
 layout: small-image-right
-image: images/solving-the-hashing-dilemma.jpeg
+image: /solving-the-hashing-dilemma.jpeg
 ---
 
 ## Yes
@@ -610,7 +610,7 @@ function renderChunk(code, chunk, outputOptions, { /* NEW */ chunks }){
 layout: tweet-right
 tweet: '1565292648134578177'
 class: 'bg-cover bg-center'
-style: 'color: white; background-image:linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.533)),url("images/solving-the-hashing-dilemma.jpeg");'
+style: 'color: white; background-image:linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.533)),url("/solving-the-hashing-dilemma.jpeg");'
 ---
 
 <div v-click>
@@ -621,7 +621,7 @@ style: 'color: white; background-image:linear-gradient(rgba(0, 0, 0, 0.333), rgb
 
 ---
 layout: cover
-background: images/future.jpeg
+background: /future.jpeg
 ---
 
 # A future with Vite
@@ -632,7 +632,7 @@ tweet: '1552627938046222336'
 tweet-click: true
 clicks: 1
 class: 'bg-cover bg-center'
-style: 'color: white; background-image:linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.533)),url("images/future.jpeg");'
+style: 'color: white; background-image:linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.533)),url("/future.jpeg");'
 ---
 
 # How does Rollup<br>feel about<br>Vite?
@@ -645,7 +645,7 @@ We were not asked…
 
 ---
 layout: small-image-right
-image: images/future.jpeg
+image: /future.jpeg
 clicks: 3
 ---
 
@@ -667,7 +667,7 @@ Which is exactly how we wanted to position Rollup!
 
 ---
 layout: small-image-right
-image: images/future.jpeg
+image: /future.jpeg
 clicks: 3
 ---
 
@@ -677,13 +677,13 @@ clicks: 3
 
 - Rich Harris created Rollup in 2015
 - In 2017, I created some PRs to improve tree-shaking
-- Accidentally became Rollup maintainer<br><img src="images/rich-message.png" class="no-fade">
+- Accidentally became Rollup maintainer<br><img src="/rich-message.png" class="no-fade">
 
 </v-clicks>
 
 ---
 layout: small-image-right
-image: images/future.jpeg
+image: /future.jpeg
 clicks: 4
 ---
 
@@ -707,7 +707,7 @@ Double down on:
 
 ---
 layout: small-image-right
-image: images/future.jpeg
+image: /future.jpeg
 clicks: 3
 ---
 
@@ -729,7 +729,7 @@ But WMR and especially Vite were beyond my wildest hopes!
 
 ---
 layout: small-image-right
-image: images/future.jpeg
+image: /future.jpeg
 clicks: 2
 ---
 
@@ -751,14 +751,14 @@ clicks: 2
 
 ---
 layout: cover
-background: images/roadmap.jpeg
+background: /roadmap.jpeg
 ---
 
 # Roadmap
 
 ---
 layout: small-image-right
-image: images/roadmap-narrow.jpeg
+image: /roadmap-narrow.jpeg
 clicks: 4
 ---
 
@@ -777,7 +777,7 @@ clicks: 4
 
 ---
 layout: small-image-right
-image: images/roadmap-narrow.jpeg
+image: /roadmap-narrow.jpeg
 ---
 
 # What is next?
@@ -796,7 +796,7 @@ image: images/roadmap-narrow.jpeg
 
 ---
 layout: small-image-right
-image: images/roadmap-narrow.jpeg
+image: /roadmap-narrow.jpeg
 ---
 
 # What about build speed?
@@ -819,7 +819,7 @@ Open to converting Rollup parts to native code eventually
 
 ---
 class: 'grid justify-center content-center text-center bg-cover bg-center'
-style: 'color: white; background-image:linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.533)),url("images/end.jpeg");'
+style: 'color: white; background-image:linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.533)),url("/end.jpeg");'
 ---
 
 # Thank you
