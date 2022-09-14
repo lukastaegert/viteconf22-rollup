@@ -825,4 +825,6 @@ TNG Technology Consulting
 
 <a href="https://rollupjs.org/"><logos-rollup/> rollupjs.org</a>
 
+slides: <a href="https://lukastaegert.github.io/viteconf22-rollup">lukastaegert.github.io/viteconf22-rollup</a>
+
 </div>
