@@ -1,6 +1,7 @@
 <template>
   <div
-    class="slidev-layout default grid grid-cols-[1fr,550px] gap-5 w-full h-full content-center"
+    class="slidev-layout default grid grid-cols-[1fr,550px] gap-5 w-full h-full content-center bg-cover bg-center"
+    :style="style"
   >
     <div class="justify-self-end self-center text-right">
       <slot />
@@ -13,8 +14,18 @@
 </template>
 
 <script setup>
+import { computed } from "vue";
+
 const props = defineProps({
+  background: { type: String },
   tweet: { type: String },
   tweetClick: { type: Boolean },
 });
+
+const style = computed(
+  () =>
+    `color: white; background-image: linear-gradient(#0005, #0008),url('${
+      import.meta.env.BASE_URL
+    }${props.background}');`
+);
 </script>

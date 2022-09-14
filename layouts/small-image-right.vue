@@ -3,18 +3,22 @@
     <div class="slidev-layout default">
       <slot />
     </div>
-    <div
-      class="w-full h-full"
-      :style="{
-        backgroundImage: `linear-gradient(#fff5, #fff8), url(${props.image})`,
-      }"
-      style="background-position: center center; background-size: cover"
-    ></div>
+    <div class="w-full h-full bg-cover bg-center" :style="style"></div>
   </div>
 </template>
 
 <script setup>
+import { computed } from "vue";
+
 const props = defineProps({
   image: { type: String },
 });
+
+const style = computed(
+  () =>
+    `background-image: linear-gradient(#fff5, #fff8),url('${
+      import.meta.env.BASE_URL
+    }${props.image}');`
+);
+console.log(style.value);
 </script>
