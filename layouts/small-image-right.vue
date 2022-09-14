@@ -20,5 +20,4 @@ const style = computed(
       import.meta.env.BASE_URL
     }${props.image}');`
 );
-console.log(style.value);
 </script>

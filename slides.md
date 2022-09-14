@@ -755,21 +755,16 @@ background: /roadmap.jpeg
 ---
 layout: small-image-right
 image: roadmap-narrow.jpeg
-clicks: 4
 ---
 
 # More Rollup 3 goodies
 
-<v-clicks at="0" class="click-fade">
-
-- per-chunk `banner/footer/intro/outro` config for simple code injection
+- per-chunk `banner/footer/intro/outro`
 - sourcemaps as regular assets in `generateBundle`
-- better alignment with NodeJS interop for library bundling<br>
-  → improved defaults for `interop`, `esModule`
-- improved defaults for `preserveEntrySignatures`, `generatedCode`,<br>`makeAbsoluteExternalsRelative`
-- smaller footprint via separate browser build<br>and more…
+- improved defaults
+- smaller footprint via separate browser build
 
-</v-clicks>
+<a href="https://github.com/rollup/rollup/pull/4549">and more…</a>
 
 ---
 layout: small-image-right
@@ -814,8 +809,9 @@ Open to converting Rollup parts to native code eventually
 </v-click>
 
 ---
-class: 'grid justify-center content-center text-center bg-cover bg-center'
-style: 'color: white; background-image:linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.533)),url("/end.jpeg");'
+layout: image
+class: 'text-center'
+background: end.jpeg
 ---
 
 # Thank you
