@@ -5,6 +5,7 @@ favicon: favicon.png
 class: text-center
 background: /title.jpeg
 title: The hashing dilemma,<br>Rollup 3,<br>and our future with Vite
+aspectRatio: "16/10"
 ---
 
 # The hashing dilemma,<br>Rollup 3,<br>and our future with Vite
