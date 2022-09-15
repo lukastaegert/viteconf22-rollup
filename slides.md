@@ -14,10 +14,18 @@ TNG Technology Consulting
 
 Maintainer of RollupJS
 
+<!--
+Thank you very much for giving me the oppourtunity to talk here.
+
+Fair to say Rollup is one of the foundations on which Vite is built.
+
+When I was invited, at least one person expected me to shed a little more light our relationship.
+-->
+
 ---
 layout: tweet-right
 tweet: '1563159067979161601'
-background: 'title.jpeg'
+background: title.jpeg
 ---
 
 <div v-click>
@@ -27,6 +35,12 @@ background: 'title.jpeg'
 but first…
 
 </div>
+
+<!--
+So Eric, I will try to do that.
+
+But first something else, as what really gets me going is technical stuff. But bear with me, it will be very relevant to the topic.
+-->
 
 ---
 layout: cover
@@ -45,7 +59,7 @@ background: ancient-bug.jpeg
 ---
 layout: tweet-right
 tweet: '1277937776898519040'
-background: 'ancient-bug.jpeg'
+background: ancient-bug.jpeg
 ---
 
 <div v-click>
@@ -53,6 +67,10 @@ background: 'ancient-bug.jpeg'
 # Uh oh
 
 </div>
+
+<!--
+A well-known Google developer advocate was really making a great case how Rollup's plugin system was so much superior to the alternatives.
+-->
 
 ---
 layout: small-image-right
@@ -79,6 +97,10 @@ console.log('bar');</pre>")
 A --> B
 A --> C
 ```
+
+<!--
+file names should be unique identifiers for their content.
+-->
 
 ---
 clicks: 2
@@ -153,6 +175,10 @@ B --> A
    → Rollup 2: Replace imports with chunk names
 
 </v-clicks>
+
+<!--
+How do you hash in such a scenario? Now we want to hash a content that references another file that references the original file.
+-->
 
 ---
 clicks: 0
@@ -336,20 +362,15 @@ hashes depend on original file names
 </v-click>
 
 ---
-layout: small-image-right
-image: ancient-bug.jpeg
----
-
-# Not nice on tooling.report
-
-<img src="/hashing-issue.png" alt="Tooling report">
-
----
 layout: cover
 background: /solving-the-hashing-dilemma.jpeg
 ---
 
 # Rollup 3:<br>Solving the hashing dilemma
+
+<!--
+I said that this we will get to Vite as well, but bear a little longer with me. This solution will also provide important improvements to Vite plugins.
+-->
 
 ---
 clicks: 0
@@ -810,7 +831,7 @@ Open to converting Rollup parts to native code eventually
 
 ---
 layout: image
-class: 'text-center'
+class: text-center
 background: end.jpeg
 ---
 
@@ -828,3 +849,7 @@ TNG Technology Consulting
 slides: <a href="https://lukastaegert.github.io/viteconf22-rollup">lukastaegert.github.io/viteconf22-rollup</a>
 
 </div>
+
+<!--
+Thank you for listening, I hope you learned something. Otherwise, maybe I could entertain you with our kid's car collection.
+-->
